@@ -20,6 +20,11 @@ areaOfCircleLabel.id = "area Label"
 
 areaOfCircleLabel:setFillColor( 1, 1, 1 )
 
+function round( num, numDecimalPlaces)
+	local mult = 10^(numDecimalPlaces or 0)
+	return math.floor(num * mult + 0.5) / mult
+	
+end
 
 
 local calculateButton = display.newImageRect( "./assets/images/calculate.png", 200, 170 )
@@ -44,14 +49,14 @@ local function calculateButtonTouch( event )
     local diameterOfCircle = areaOfCircleTextField.text
  
 
-    areaOfcircle = math.pi * (diameterOfCircle/2) * (diameterOfCircle/2)
+    areaOfcircle = 3.14 * (diameterOfCircle/2) * (diameterOfCircle/2)
 
 	--areaOfcircle = math.pi * input Field 
 
 
     -- print( areaOfSquare )
 
-    myText.text = "The area is " ..areaOfcircle
+    myText.text = "The area is " ..areaOfcircle round(areaOfcircle,2)
 
 
 
